@@ -1,0 +1,132 @@
+/**
+ * Design Tokens
+ * Single source of truth for all design decisions.
+ * Sourced from Figma: AI-Test / Finance Colors (node 129:117)
+ *
+ * Structure:
+ *  1. Primitive colors   — raw palette, never use directly in components
+ *  2. Semantic colors    — role-based aliases (use these in components)
+ *  3. Category colors    — 15 named colors for budget/transaction categories
+ *  4. Typography         — Public Sans type scale
+ *  5. Radius             — border-radius scale
+ */
+
+@theme {
+  /* ============================================================
+   * 1. PRIMITIVE COLORS
+   * ============================================================ */
+
+  /* Grey scale */
+  --color-grey-900: #201f24;
+  --color-grey-500: #696868;
+  --color-grey-300: #b3b3b3;
+  --color-grey-100: #f2f2f2;
+
+  /* Beige scale */
+  --color-beige-500: #98908b;
+  --color-beige-100: #f8f4f0;
+
+  /* White */
+  --color-white: #ffffff;
+
+  /* ============================================================
+   * 2. SEMANTIC COLORS
+   * Maps design intent → primitive. Use these in components.
+   *
+   * Naming is intentionally property-agnostic so Tailwind utilities
+   * read naturally: bg-canvas, text-foreground, bg-surface, etc.
+   * ============================================================ */
+
+  /* Backgrounds — use as `bg-{name}` */
+  --color-canvas: #f8f4f0;   /* page-level background    → beige-100  */
+  --color-surface: #ffffff;  /* card / panel background  → white      */
+  --color-sidebar: #201f24;  /* nav sidebar              → grey-900   */
+  --color-overlay: #201f24;  /* modals, drawers          → grey-900   */
+
+  /* Text — use as `text-{name}` */
+  --color-foreground: #201f24;      /* headings, labels      → grey-900  */
+  --color-secondary: #696868;       /* body copy             → grey-500  */
+  --color-muted: #b3b3b3;           /* placeholders, hints   → grey-300  */
+  --color-inverse: #ffffff;         /* text on dark bg       → white     */
+  --color-on-beige: #98908b;        /* captions on beige bg  → beige-500 */
+
+  /* Borders & dividers — use as `border-{name}` */
+  --color-border: #f2f2f2;          /* default border/divider → grey-100  */
+  --color-border-strong: #b3b3b3;   /* stronger border        → grey-300  */
+
+  /* Accent / interactive — use as `bg-accent`, `text-accent`, `border-accent` */
+  --color-accent: #277c78;          /* primary CTA, links     → green     */
+  --color-accent-hover: #1e6360;    /* hover/active state     — manual    */
+
+  /* Feedback — use as `bg-success`, `text-error`, etc. */
+  --color-success: #277c78;  /* → green  */
+  --color-error: #c94736;    /* → red    */
+  --color-warning: #cab361;  /* → gold   */
+  --color-info: #3f82b2;     /* → blue   */
+
+  /* ============================================================
+   * 3. CATEGORY COLORS
+   * Used for budget categories, transaction tags, and chart segments.
+   * Each color is intentionally named after its visual appearance
+   * so it can be assigned to any category without coupling.
+   * ============================================================ */
+
+  --color-category-green: #277c78;
+  --color-category-army-green: #7f9161;
+  --color-category-turquoise: #597c7c;
+  --color-category-cyan: #82c9d7;
+  --color-category-blue: #3f82b2;
+  --color-category-navy: #626070;
+  --color-category-navy-grey: #97a0ac;
+  --color-category-purple: #826cb0;
+  --color-category-pink: #af81ba;
+  --color-category-magenta: #934f6f;
+  --color-category-red: #c94736;
+  --color-category-orange: #be6c49;
+  --color-category-brown: #93674f;
+  --color-category-gold: #cab361;
+  --color-category-yellow: #f2cdac;
+
+  /* ============================================================
+   * 4. TYPOGRAPHY
+   * Font: Public Sans (Google Fonts)
+   * Scale sourced from Figma — desktop values; mobile handled via CSS
+   * ============================================================ */
+
+  --font-sans: 'Public Sans', sans-serif;
+
+  /* Type scale — desktop (default)
+   * Format: font-size / line-height
+   * text-preset-{n} → use as class `text-preset-{n}` */
+  --text-preset-1: 3.5rem / 1.2;    /* 56px · headings          */
+  --text-preset-2: 2.5rem / 1.2;    /* 40px · page titles       */
+  --text-preset-3: 2rem / 1.2;      /* 32px · section headings  */
+  --text-preset-4: 1.5rem / 1.2;    /* 24px · sub-headings      */
+  --text-preset-5: 1.125rem / 1.5;  /* 18px · large body text   */
+  --text-preset-6: 1rem / 1.5;      /* 16px · default body text */
+
+  /* ============================================================
+   * 5. BORDER RADIUS
+   * ============================================================ */
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+}
+
+/* ============================================================
+ * MOBILE TYPE SCALE OVERRIDES
+ * Figma mobile presets (applied below md breakpoint)
+ * ============================================================ */
+
+@media (max-width: 767px) {
+  :root {
+    --text-preset-1: 2rem / 1.2;    /* 32px */
+    --text-preset-2: 1.25rem / 1.5; /* 20px */
+    --text-preset-3: 1rem / 1.5;    /* 16px */
+    --text-preset-4: 0.875rem / 1.5; /* 14px */
+    --text-preset-5: 0.75rem / 1.5;  /* 12px */
+  }
+}
