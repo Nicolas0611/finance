@@ -7,6 +7,19 @@
 ## Behavior
 Autonomous. Uses Figma MCP if a Figma component name is mentioned.
 
+## Step 0 — Declare context (always first, always visible)
+Before doing anything else, output this block so the user
+can see exactly what rules and skills are loaded:
+
+---
+**Context loaded:**
+- rules: architecture.md, components.md, styling.md, responsive.md, typescript.md
+- skills: tokens.md, tailwind.md, accessibility.md, solid.md, clean-code.md
+- commands: use-tokens.md, make-responsive.md, check-accessibility.md, review.md
+- design tokens: src/styles/tokens.css
+- component convention: export default, own folder, barrel index.ts
+---
+
 ## Step 1 — Gather context
 Ask only what is missing:
 - Which feature does it belong to?
