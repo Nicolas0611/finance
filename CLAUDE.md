@@ -19,7 +19,7 @@ ALWAYS use design tokens — never hardcode colors, spacing, or typography value
 - @rules/data-fetching.md
 - @rules/styling.md
 - @rules/responsive.md
-- @rules/finance.md
+- @rules/create-feature.md
 
 ## Skills (how to implement things)
 - @skills/mapper.md
@@ -27,6 +27,10 @@ ALWAYS use design tokens — never hardcode colors, spacing, or typography value
 - @skills/tailwind.md
 - @skills/tokens.md
 - @skills/forms.md
+- @skills/accesibility.md
+- @skills/clean-code.md
+- @skills/@figma.md
+
 
 ## Commands (shortcuts)
 - create-feature [name]     → @commands/create-feature.md

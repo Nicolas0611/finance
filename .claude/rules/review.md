@@ -17,6 +17,8 @@ Review the provided code against ALL rule files and report:
 8. Does the component contain business logic?
 9. Are hooks imported from the feature index?
 10. Does money handling follow the finance rules?
+11. Is there any component that do not follow the export default?
+12. Is there any component that is not imported in the main barrel?
 
 ### Report format
 ✅ Passed: [what is correct]
