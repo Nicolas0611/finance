@@ -32,9 +32,6 @@ Semantic HTML + ARIA + contrast + focus + finance-specific patterns.
 Run @commands/review.md.
 All rules: architecture, TypeScript, components, data, styling, finance.
 
-## Step 7 — SOLID + clean code audit
-Apply @skills/solid.md and @skills/clean-code.md.
-Flag any violations.
 
 ## Step 8 — Final report
 
