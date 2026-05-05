@@ -1,21 +1,21 @@
 import { NavLink } from 'react-router-dom'
 import {
-  House,
-  ArrowsDownUp,
-  ChartDonut,
-  Jar,
-  Receipt,
-  ArrowFatLinesLeft,
+  HouseIcon,
+  ArrowsDownUpIcon,
+  ChartDonutIcon,
+  JarIcon,
+  ReceiptIcon,
+  ArrowFatLinesLeftIcon,
 } from '@phosphor-icons/react'
 import { ROUTES } from '@/routes/routes'
 import { sidebarStyles as cls } from './Sidebar.styles'
 
 const NAV_ITEMS = [
-  { label: 'Overview', path: ROUTES.overview, icon: House, end: true },
-  { label: 'Transactions', path: ROUTES.transactions, icon: ArrowsDownUp, end: false },
-  { label: 'Budgets', path: ROUTES.budgets, icon: ChartDonut, end: false },
-  { label: 'Pots', path: ROUTES.pots, icon: Jar, end: false },
-  { label: 'Recurring bills', path: ROUTES.recurringBills, icon: Receipt, end: false },
+  { label: 'Overview', path: ROUTES.overview, icon: HouseIcon, end: true },
+  { label: 'Transactions', path: ROUTES.transactions, icon: ArrowsDownUpIcon, end: false },
+  { label: 'Budgets', path: ROUTES.budgets, icon: ChartDonutIcon, end: false },
+  { label: 'Pots', path: ROUTES.pots, icon: JarIcon, end: false },
+  { label: 'Recurring bills', path: ROUTES.recurringBills, icon: ReceiptIcon, end: false },
 ] as const
 
 interface SidebarProps {
@@ -49,7 +49,7 @@ const Sidebar = ({ isMinimized = false, onToggleMinimize }: SidebarProps) => (
       className={cls.minimize}
       aria-label={isMinimized ? 'Expand menu' : 'Minimize menu'}
     >
-      <ArrowFatLinesLeft
+      <ArrowFatLinesLeftIcon
         className={cls.minimizeIcon(isMinimized)}
         weight="fill"
         aria-hidden="true"

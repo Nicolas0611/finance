@@ -34,18 +34,18 @@ ALWAYS use design tokens — never hardcode colors, spacing, or typography value
 
 
 ## Commands (shortcuts)
-- create-feature [name]     → @commands/create-feature.md
-- create-component [name]   → @commands/create-component.md
-- create-service [name]     → @commands/create-service.md
-- use-tokens                → @commands/use-tokens.md
-- make-responsive           → @commands/make-responsive.md
-- review                    → @commands/review.md
-- check-accesibility        → @commands/check-accesibility.md
+- @commands/create-feature.md
+- @commands/create-component.md
+- @commands/create-service.md
+- @commands/use-tokens.md
+- @commands/make-responsive.md
+- @commands/review.md
+- @commands/check-accesibility.md
 
 ## Agents
-- build feature [name] end to end  → @agents/feature-builder.md
-- build component [name]           → @agents/component-builder.md
-- review design [name]             → @agents/designer-review.md
+- @agents/feature-builder.md
+- @agents/component-builder.md
+- @agents/designer-review.md
 
 ## Finance vocabulary
 transaction · account · category · budget · period · goal · balance
