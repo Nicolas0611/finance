@@ -20,6 +20,7 @@ ALWAYS use design tokens — never hardcode colors, spacing, or typography value
 - @rules/styling.md
 - @rules/responsive.md
 - @rules/create-feature.md
+- @rules/review.md
 
 ## Skills (how to implement things)
 - @skills/mapper.md
@@ -39,10 +40,12 @@ ALWAYS use design tokens — never hardcode colors, spacing, or typography value
 - use-tokens                → @commands/use-tokens.md
 - make-responsive           → @commands/make-responsive.md
 - review                    → @commands/review.md
+- check-accesibility        → @commands/check-accesibility.md
 
 ## Agents
 - build feature [name] end to end  → @agents/feature-builder.md
 - build component [name]           → @agents/component-builder.md
+- review design [name]             → @agents/designer-review.md
 
 ## Finance vocabulary
 transaction · account · category · budget · period · goal · balance
