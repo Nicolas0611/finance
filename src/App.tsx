@@ -1,5 +1,5 @@
-import { ErrorBoundary } from "./components/ErrorBoundary";
 import { RoutesDirectory } from "./routes/RoutesDirectory";
+import { ErrorBoundary } from "./components";
 
 function App() {
   return (

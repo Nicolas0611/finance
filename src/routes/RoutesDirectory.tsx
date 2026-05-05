@@ -1,9 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { publicRoutes } from "./PublicRoutes";
 import { Suspense } from "react";
+import { publicRoutes } from "./PublicRoutes";
+import { privateRoutes } from "./PrivateRoutes";
 
 export const RoutesDirectory = () => {
-  const router = createBrowserRouter([...publicRoutes]);
+  const router = createBrowserRouter([...publicRoutes, ...privateRoutes]);
   return (
     <Suspense
       fallback={

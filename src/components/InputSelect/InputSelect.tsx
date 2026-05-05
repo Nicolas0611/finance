@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { cn } from '@/utils/cn'
 import { inputSelectStyles as cls } from './InputSelect.styles'
 
-export interface SelectOption {
+interface SelectOption {
   value: string
   label: string
   color?: string

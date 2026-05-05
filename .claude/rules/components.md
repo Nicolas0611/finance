@@ -105,6 +105,7 @@ src/
 ```
 
 ## Rules
+- Before creating a new component verify under the `index.ts` that the component is not repeated or already exists.
 - Every component lives in its own folder named exactly after the component
 - The component file inside the folder is named exactly after the folder
 - Every component file uses `export default ComponentName` — never named export

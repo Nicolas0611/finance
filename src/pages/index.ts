@@ -1,0 +1,5 @@
+export { default as AccountsPage } from './AccountsPage/AccountsPage'
+export { default as DashboardPage } from './DashboardPage/DashboardPage'
+export { default as TransactionsPage } from './TransactionsPage/TransactionsPage'
+export { default as UsersPage } from './UsersPage/UsersPage'
+export { default as LoginPage } from './LoginPage/LoginPage'

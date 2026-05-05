@@ -1,29 +1,29 @@
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-import type { CreateUserPayload } from '../types/models';
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { z } from 'zod'
+import type { CreateUserPayload } from '../../types/models'
 
 const schema = z.object({
   name:  z.string().min(2, 'Name must be at least 2 characters'),
   email: z.string().email('Invalid email'),
   role:  z.enum(['admin', 'editor', 'viewer']),
-});
+})
 
 interface UserFormProps {
-  onSubmit:    (data: CreateUserPayload) => Promise<unknown>;
-  isSubmitting: boolean;
+  onSubmit:     (data: CreateUserPayload) => Promise<unknown>
+  isSubmitting: boolean
 }
 
-export const UserForm = ({ onSubmit, isSubmitting }: UserFormProps) => {
+const UserForm = ({ onSubmit, isSubmitting }: UserFormProps) => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm<CreateUserPayload>({
     resolver: zodResolver(schema),
     defaultValues: { role: 'viewer' },
-  });
+  })
 
   const handleFormSubmit = async (data: CreateUserPayload) => {
-    await onSubmit(data);
-    reset();
-  };
+    await onSubmit(data)
+    reset()
+  }
 
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-4">
@@ -68,5 +68,7 @@ export const UserForm = ({ onSubmit, isSubmitting }: UserFormProps) => {
         {isSubmitting ? 'Creating…' : 'Create User'}
       </button>
     </form>
-  );
-};
+  )
+}
+
+export default UserForm
