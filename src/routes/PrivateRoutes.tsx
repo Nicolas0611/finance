@@ -5,8 +5,8 @@ import { Navigate, type RouteObject } from "react-router-dom";
 const MainLayout = lazy(() => import("@/layouts/MainLayout/MainLayout"));
 const DashboardPage = lazy(() => import("@/pages/DashboardPage/DashboardPage"));
 
-const PRIVATE_ROUTE = {
-  DASHBOARD: "/dashboard",
+export const PRIVATE_ROUTE = {
+  OVERVIEW: "/overview",
   TRANSACTIONS: "/transactions",
   BUDGETS: "/budgets",
   POTS: "/pots",
@@ -16,9 +16,9 @@ const PRIVATE_ROUTE = {
 export const privateRoutes: RouteObject[] = [
   {
     path: "*",
-    element: <Navigate to={PRIVATE_ROUTE.DASHBOARD} />,
+    element: <Navigate to={PRIVATE_ROUTE.OVERVIEW} />,
   },
-  { path: PRIVATE_ROUTE.DASHBOARD, element: <MainLayout /> , children: [
+  { path: PRIVATE_ROUTE.OVERVIEW, element: <MainLayout /> , children: [
     {
       index: true,
       element: <DashboardPage />,

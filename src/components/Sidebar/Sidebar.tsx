@@ -9,9 +9,10 @@ import {
 } from '@phosphor-icons/react'
 import { ROUTES } from '@/routes/routes'
 import { sidebarStyles as cls } from './Sidebar.styles'
+import { PRIVATE_ROUTE } from '@/routes/PrivateRoutes'
 
 const NAV_ITEMS = [
-  { label: 'Overview', path: ROUTES.overview, icon: HouseIcon, end: true },
+  { label: 'Overview', path: PRIVATE_ROUTE.OVERVIEW, icon: HouseIcon, end: true },
   { label: 'Transactions', path: ROUTES.transactions, icon: ArrowsDownUpIcon, end: false },
   { label: 'Budgets', path: ROUTES.budgets, icon: ChartDonutIcon, end: false },
   { label: 'Pots', path: ROUTES.pots, icon: JarIcon, end: false },
