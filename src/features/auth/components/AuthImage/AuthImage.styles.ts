@@ -9,7 +9,7 @@ export const authImageStyles = {
   illustration: "absolute inset-0 w-full h-full object-cover",
   content: "relative z-10 flex flex-col justify-between h-full",
   logo: "h-5 w-auto",
-  textBlock: "flex flex-col gap-6",
-  heading: "text-preset-3 font-bold text-inverse",
+  textBlock: "flex flex-col gap-4",
+  heading: "text-preset-2 font-bold text-inverse",
   body: "text-preset-6 text-inverse",
 };
