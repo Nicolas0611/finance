@@ -7,7 +7,7 @@ const LoginPage = () => {
     <div className={cls.root}>
       <AuthImage />
       <div className={cls.form}>
-        <p className="text-preset-6 text-secondary">Login Page.</p>
+        <p className="text-preset-2 text-secondary">Login Page.</p>
         <InputSelect
           options={[
             { value: "1", label: "Option 1" },
