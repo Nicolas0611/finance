@@ -1,5 +1,4 @@
-import { InputSelect } from "@/components";
-import { AuthImage } from "@/features/auth/components";
+import { AuthForm, AuthImage } from "@/features/auth/components";
 import { loginPageStyles as cls } from "./LoginPage.styles";
 
 const LoginPage = () => {
@@ -7,13 +6,7 @@ const LoginPage = () => {
     <div className={cls.root}>
       <AuthImage />
       <div className={cls.form}>
-        <p className="text-preset-2 text-secondary">Login Page.</p>
-        <InputSelect
-          options={[
-            { value: "1", label: "Option 1" },
-            { value: "2", label: "Option 2" },
-          ]}
-        />
+        <AuthForm />
       </div>
     </div>
   );
