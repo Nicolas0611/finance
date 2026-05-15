@@ -1,6 +1,7 @@
 import { Button, InputField } from "@/components";
 import { authFormStyles as cls } from "./AuthForm.styles";
 import { useForm } from "react-hook-form";
+import { useLogin } from "@/features/auth/hooks";
 
 interface LoginFormData {
   email: string;
@@ -14,8 +15,9 @@ const AuthForm = () => {
     formState: { errors },
   } = useForm<LoginFormData>({});
 
+  const { mutate, isPending } = useLogin();
   const onSubmit = (data: LoginFormData) => {
-    console.log(data);
+    mutate(data);
   };
 
   return (
@@ -27,7 +29,9 @@ const AuthForm = () => {
         placeholder="Password"
         {...register("password")}
       />
-      <Button type="submit">Login</Button>
+      <Button type="submit" disabled={isPending}>
+        Login
+      </Button>
     </form>
   );
 };
