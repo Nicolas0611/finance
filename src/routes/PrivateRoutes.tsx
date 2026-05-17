@@ -3,7 +3,9 @@ import { lazy } from "react";
 import { Navigate, type RouteObject } from "react-router-dom";
 
 const MainLayout = lazy(() => import("@/layouts/MainLayout/MainLayout"));
-const DashboardPage = lazy(() => import("@/pages/DashboardPage/DashboardPage"));
+const DashboardPage = lazy(
+  () => import("@/pages/private/DashboardPage/DashboardPage"),
+);
 
 export const PRIVATE_ROUTE = {
   OVERVIEW: "/overview",
@@ -18,10 +20,14 @@ export const privateRoutes: RouteObject[] = [
     path: "*",
     element: <Navigate to={PRIVATE_ROUTE.OVERVIEW} />,
   },
-  { path: PRIVATE_ROUTE.OVERVIEW, element: <MainLayout /> , children: [
-    {
-      index: true,
-      element: <DashboardPage />,
-    },
-  ]},
+  {
+    path: PRIVATE_ROUTE.OVERVIEW,
+    element: <MainLayout />,
+    children: [
+      {
+        index: true,
+        element: <DashboardPage />,
+      },
+    ],
+  },
 ];
