@@ -1,5 +1,6 @@
 import axios, { AxiosError, type InternalAxiosRequestConfig } from "axios";
 import { normalizeError } from "../utils/errors";
+import { showApiErrorToast } from "../utils/showApiErrorToast";
 
 const apiClient = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
@@ -19,7 +20,14 @@ apiClient.interceptors.response.use(
     if (error.response?.status === 401) {
       // trigger token refresh or redirect
     }
-    return Promise.reject(normalizeError(error));
+
+    const appError = normalizeError(error);
+
+    if (!error.config?.skipGlobalErrorToast) {
+      showApiErrorToast(appError);
+    }
+
+    return Promise.reject(appError);
   },
 );
 

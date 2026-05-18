@@ -6,6 +6,18 @@ export interface AppError {
   code?: string;
 }
 
+export const isAppError = (error: unknown): error is AppError =>
+  typeof error === 'object' &&
+  error !== null &&
+  'message' in error &&
+  typeof (error as AppError).message === 'string'
+
+export const getErrorMessage = (error: unknown): string => {
+  if (isAppError(error)) return error.message
+  if (error instanceof Error) return error.message
+  return 'An unexpected error occurred'
+}
+
 export const normalizeError = (error: unknown): AppError => {
   if (axios.isAxiosError(error)) {
     return {
