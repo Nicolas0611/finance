@@ -3,6 +3,7 @@ import { authFormStyles as cls } from "./LoginForm.styles";
 import { useForm } from "react-hook-form";
 import { useLogin } from "@/features/auth/hooks";
 import { Link } from "react-router-dom";
+import { AuthWrapper } from "@/features/auth/components";
 
 interface LoginFormData {
   email: string;
@@ -22,8 +23,15 @@ const AuthForm = () => {
   };
 
   return (
-    <form className={cls.root} onSubmit={handleSubmit(onSubmit)}>
-      <h2 className={cls.title}>Login</h2>
+    <AuthWrapper
+      title="Login"
+      onSubmit={handleSubmit(onSubmit)}
+      link={{
+        title: "Need to create an account?",
+        text: "Sign Up",
+        to: "/auth/signup",
+      }}
+    >
       <InputField
         disabled={isPending}
         type="email"
@@ -39,13 +47,7 @@ const AuthForm = () => {
       <Button type="submit" disabled={isPending || !isValid}>
         Login
       </Button>
-      <p className={cls.description}>
-        Need to create an account?{" "}
-        <Link to="/auth/signup" className={cls.link}>
-          Sign Up
-        </Link>
-      </p>
-    </form>
+    </AuthWrapper>
   );
 };
 
