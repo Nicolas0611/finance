@@ -7,6 +7,7 @@ import { PRIVATE_ROUTE } from "@/routes/PrivateRoutes";
 export const useLogin = () => {
   const { login: loginFn, logout: logoutFn } = useAuth();
   const navigate = useNavigate();
+
   return useMutation({
     mutationFn: login,
     onSuccess: (data) => {
