@@ -1,2 +1,2 @@
 export { default as useAuth } from "./useAuth";
-export { useLogin } from "./useAuthMutations";
+export { useLogin, useSignup } from "./useAuthMutations";
