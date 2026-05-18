@@ -1,4 +1,5 @@
-import { createContext, useContext, useState, type ReactNode } from "react";
+import { createContext, useContext, type ReactNode } from "react";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
 
 interface AuthState {
   token: string | null;
@@ -11,23 +12,27 @@ const AuthContext = createContext<AuthState | null>(null);
 
 //todo: check this authprovider
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const [token, setToken] = useState<string | null>(() =>
-    localStorage.getItem("access_token"),
+  const [storedValue, setValue] = useLocalStorage<string | null>(
+    "access_token",
+    null,
   );
-
   const login = (t: string) => {
-    localStorage.setItem("access_token", t);
-    setToken(t);
+    setValue(t);
   };
 
   const logout = () => {
     localStorage.removeItem("access_token");
-    setToken(null);
+    setValue(null);
   };
 
   return (
     <AuthContext.Provider
-      value={{ token, login, logout, isAuthenticated: !!token }}
+      value={{
+        token: storedValue,
+        login,
+        logout,
+        isAuthenticated: !!storedValue,
+      }}
     >
       {children}
     </AuthContext.Provider>
