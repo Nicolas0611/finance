@@ -7,10 +7,9 @@ export interface UserDTO {
   role: UserRole;
   isActive: boolean;
   createdAt: Date;
-  initials: string;
 }
 
-export type LoginResponseDTO = {
+export type AuthResponseDTO = {
   token: string;
   user: UserDTO;
 };

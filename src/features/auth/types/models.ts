@@ -3,6 +3,12 @@ export interface LoginPayload {
   password: string;
 }
 
+export interface SignupPayload {
+  name: string;
+  email: string;
+  password: string;
+}
+
 type UserRole = "USER" | "ADMIN";
 
 export interface User {
@@ -12,10 +18,14 @@ export interface User {
   role: UserRole;
   isActive: boolean;
   createdAt: Date;
-  initials: string;
 }
 
 export interface LoginResponse {
+  token: string;
+  user: User;
+}
+
+export interface SignupResponse {
   token: string;
   user: User;
 }

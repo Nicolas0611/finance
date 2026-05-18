@@ -1,13 +1,28 @@
 import apiClient from "@/api/apiClient";
 import { ENDPOINTS } from "@/api/endpoints";
-import type { LoginPayload, LoginResponse } from "@/features/auth/types/models";
-import type { LoginResponseDTO } from "@/features/auth/types/dto";
+import type {
+  LoginPayload,
+  SignupPayload,
+  LoginResponse,
+  SignupResponse,
+} from "@/features/auth/types/models";
+import type { AuthResponseDTO } from "@/features/auth/types/dto";
 
-export const login = async (payload: LoginPayload): Promise<LoginResponse> => {
+const login = async (payload: LoginPayload): Promise<LoginResponse> => {
   const {
     data: { data },
-  } = await apiClient.post<{ data: LoginResponseDTO }>(
+  } = await apiClient.post<{ data: AuthResponseDTO }>(
     ENDPOINTS.auth.login,
+    payload,
+  );
+  return data;
+};
+
+const signup = async (payload: SignupPayload): Promise<SignupResponse> => {
+  const {
+    data: { data },
+  } = await apiClient.post<{ data: AuthResponseDTO }>(
+    ENDPOINTS.auth.register,
     payload,
   );
   return data;
@@ -15,4 +30,5 @@ export const login = async (payload: LoginPayload): Promise<LoginResponse> => {
 
 export const authService = {
   login,
+  signup,
 };
