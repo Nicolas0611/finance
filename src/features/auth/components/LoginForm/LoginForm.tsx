@@ -1,8 +1,6 @@
 import { Button, InputField } from "@/components";
-import { authFormStyles as cls } from "./LoginForm.styles";
 import { useForm } from "react-hook-form";
-import { useLogin } from "@/features/auth/hooks";
-import { Link } from "react-router-dom";
+import { useAuth } from "@/features/auth/hooks";
 import { AuthWrapper } from "@/features/auth/components";
 
 interface LoginFormData {
@@ -17,9 +15,11 @@ const AuthForm = () => {
     formState: { isValid },
   } = useForm<LoginFormData>({});
 
-  const { mutate, isPending } = useLogin();
+  const { login } = useAuth();
+
   const onSubmit = (data: LoginFormData) => {
-    mutate(data);
+    if (!isValid) return;
+    login.mutate(data);
   };
 
   return (
@@ -33,7 +33,7 @@ const AuthForm = () => {
       }}
     >
       <InputField
-        disabled={isPending}
+        disabled={login.isPending}
         type="email"
         placeholder="Email"
         {...register("email", { required: true })}
@@ -44,7 +44,7 @@ const AuthForm = () => {
         placeholder="Password"
         {...register("password", { required: true })}
       />
-      <Button type="submit" disabled={isPending || !isValid}>
+      <Button type="submit" disabled={login.isPending || !isValid}>
         Login
       </Button>
     </AuthWrapper>
