@@ -24,14 +24,14 @@ const InputField = forwardRef<HTMLInputElement, InputFieldProps>(
     },
     ref,
   ) => (
-    <label className={cls.root(className)}>
+    <div className={cls.root(className)}>
       <div className={cls.content}>
         {showColorTag && <span className={cls.colorTag(colorTagClass)} />}
         {showPrefix && <span className={cls.prefix}>{prefix}</span>}
         <input ref={ref} className={cls.input} {...props} />
       </div>
       {showIcon && <span className={cls.icon}>{icon}</span>}
-    </label>
+    </div>
   ),
 );
 
