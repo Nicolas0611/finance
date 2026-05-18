@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import AuthWrapper from "../AuthWrapper/AuthWrapper";
 import { Button, InputField } from "@/components";
+import { useAuth } from "@/features/auth/hooks";
 
 interface SignupFormData {
   name: string;
@@ -15,8 +16,11 @@ const SignupForm = () => {
     formState: { isValid },
   } = useForm<SignupFormData>({});
 
+  const { signup } = useAuth();
+
   const onSubmit = (data: SignupFormData) => {
-    console.log(data);
+    if (!isValid) return;
+    signup.mutate(data);
   };
 
   return (
