@@ -1,33 +1,21 @@
-import { NavLink } from 'react-router-dom'
-import {
-  HouseIcon,
-  ArrowsDownUpIcon,
-  ChartDonutIcon,
-  JarIcon,
-  ReceiptIcon,
-  ArrowFatLinesLeftIcon,
-} from '@phosphor-icons/react'
-import { ROUTES } from '@/routes/routes'
-import { sidebarStyles as cls } from './Sidebar.styles'
-import { PRIVATE_ROUTE } from '@/routes/PrivateRoutes'
-
-const NAV_ITEMS = [
-  { label: 'Overview', path: PRIVATE_ROUTE.OVERVIEW, icon: HouseIcon, end: true },
-  { label: 'Transactions', path: ROUTES.transactions, icon: ArrowsDownUpIcon, end: false },
-  { label: 'Budgets', path: ROUTES.budgets, icon: ChartDonutIcon, end: false },
-  { label: 'Pots', path: ROUTES.pots, icon: JarIcon, end: false },
-  { label: 'Recurring bills', path: ROUTES.recurringBills, icon: ReceiptIcon, end: false },
-] as const
+import { NavLink } from "react-router-dom";
+import { ArrowFatLinesLeftIcon } from "@phosphor-icons/react";
+import { sidebarStyles as cls } from "./Sidebar.styles";
+import { NAV_ITEMS } from "./navItems";
 
 interface SidebarProps {
-  isMinimized?: boolean
-  onToggleMinimize?: () => void
+  isMinimized?: boolean;
+  onToggleMinimize?: () => void;
 }
 
 const Sidebar = ({ isMinimized = false, onToggleMinimize }: SidebarProps) => (
   <aside className={cls.root(isMinimized)}>
     <div className={cls.logo}>
-      <span className={cls.logoText}>{isMinimized ? 'f' : 'finance'}</span>
+      {isMinimized ? (
+        <img src="/LogoMinimized.svg" alt="Finance" />
+      ) : (
+        <img src="/Logo.svg" alt="Finance" />
+      )}
     </div>
 
     <nav className={cls.nav} aria-label="Main navigation">
@@ -48,7 +36,7 @@ const Sidebar = ({ isMinimized = false, onToggleMinimize }: SidebarProps) => (
       type="button"
       onClick={onToggleMinimize}
       className={cls.minimize}
-      aria-label={isMinimized ? 'Expand menu' : 'Minimize menu'}
+      aria-label={isMinimized ? "Expand menu" : "Minimize menu"}
     >
       <ArrowFatLinesLeftIcon
         className={cls.minimizeIcon(isMinimized)}
@@ -58,6 +46,6 @@ const Sidebar = ({ isMinimized = false, onToggleMinimize }: SidebarProps) => (
       {!isMinimized && <span className={cls.minimizeLabel}>Minimize Menu</span>}
     </button>
   </aside>
-)
+);
 
-export default Sidebar
+export default Sidebar;

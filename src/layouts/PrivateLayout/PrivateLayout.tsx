@@ -1,11 +1,11 @@
 import { useAuth } from "@/providers/AuthProvider";
 import { Navigate, Outlet } from "react-router-dom";
-import { ROUTES } from "@/routes/routes";
 import MainLayout from "../MainLayout/MainLayout";
+import { PUBLIC_ROUTE } from "@/routes/PublicRoutes";
 
 const PrivateLayout = () => {
   const { isAuthenticated } = useAuth();
-  if (!isAuthenticated) return <Navigate to={ROUTES.login} />;
+  if (!isAuthenticated) return <Navigate to={PUBLIC_ROUTE.AUTH} />;
 
   return (
     <MainLayout>

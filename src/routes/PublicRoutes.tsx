@@ -5,7 +5,8 @@ import { Navigate, type RouteObject } from "react-router-dom";
 const LoginPage = lazy(() => import("@/pages/public/LoginPage/LoginPage"));
 const SignupPage = lazy(() => import("@/pages/public/SignupPage/SignupPage"));
 const PublicLayout = lazy(() => import("@/layouts/PublicLayout/PublicLayout"));
-const PUBLIC_ROUTE = {
+
+export const PUBLIC_ROUTE = {
   ROOT: "/",
   AUTH: "/auth",
   LOGIN: "login",
