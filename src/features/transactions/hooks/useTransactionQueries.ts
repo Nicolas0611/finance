@@ -1,10 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
 import { transactionKeys } from "./queryKeys";
-import { transactionService } from "@/features/transactions/services/transactionService";
+import {
+  transactionService,
+  type TransactionListParams,
+} from "@/features/transactions/services/transactionService";
 
-export const useTransactionList = () =>
+export const useTransactionList = (params: TransactionListParams) =>
   useQuery({
-    queryKey: transactionKeys.all,
-    queryFn: transactionService.getTransactions,
+    queryKey: transactionKeys.list(params),
+    queryFn: () => transactionService.getTransactions(params),
     retry: false,
   });
