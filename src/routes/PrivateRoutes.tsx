@@ -8,8 +8,12 @@ const PrivateLayout = lazy(
 const DashboardPage = lazy(
   () => import("@/pages/private/DashboardPage/DashboardPage"),
 );
+const TransactionsPage = lazy(
+  () => import("@/pages/private/TransactionsPage/TransactionsPage"),
+);
 
 export const PRIVATE_ROUTE = {
+  DASHBOARD: "/",
   OVERVIEW: "/overview",
   TRANSACTIONS: "/transactions",
   BUDGETS: "/budgets",
@@ -20,15 +24,19 @@ export const PRIVATE_ROUTE = {
 export const privateRoutes: RouteObject[] = [
   {
     path: "*",
-    element: <Navigate to={PRIVATE_ROUTE.OVERVIEW} />,
+    element: <Navigate to={PRIVATE_ROUTE.DASHBOARD} />,
   },
   {
-    path: PRIVATE_ROUTE.OVERVIEW,
+    path: PRIVATE_ROUTE.DASHBOARD,
     element: <PrivateLayout />,
     children: [
       {
-        index: true,
+        path: PRIVATE_ROUTE.OVERVIEW,
         element: <DashboardPage />,
+      },
+      {
+        path: PRIVATE_ROUTE.TRANSACTIONS,
+        element: <TransactionsPage />,
       },
     ],
   },
