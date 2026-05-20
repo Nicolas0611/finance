@@ -8,11 +8,11 @@ import { ToastContainer } from "react-toastify";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <AuthProvider>
-      <QueryProvider>
+    <QueryProvider>
+      <AuthProvider>
         <ToastContainer position="top-right" autoClose={5000} pauseOnHover />
         <App />
-      </QueryProvider>
-    </AuthProvider>
+      </AuthProvider>
+    </QueryProvider>
   </StrictMode>,
 );
