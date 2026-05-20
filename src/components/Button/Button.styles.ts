@@ -1,28 +1,37 @@
-import { cn } from '@/utils/cn'
+import { cn } from "@/utils/cn";
+import type { ButtonSize, ButtonVariant } from "./Button";
 
-type Variant = 'primary' | 'secondary' | 'destroy' | 'tertiary'
+const variantStyles: Record<ButtonVariant, string> = {
+  primary: "bg-foreground text-inverse font-bold rounded-md hover:bg-secondary",
+  secondary:
+    "bg-canvas text-foreground font-bold rounded-md border border-transparent hover:bg-surface hover:border-on-beige",
+  destroy: "bg-error text-inverse font-bold rounded-md hover:opacity-90",
+  tertiary: "text-secondary font-normal hover:text-foreground",
+};
 
-const variantStyles: Record<Variant, string> = {
-  primary:   'bg-foreground text-inverse font-bold rounded-md p-4 hover:bg-secondary',
-  secondary: 'bg-canvas text-foreground font-bold rounded-md p-4 border border-transparent hover:bg-surface hover:border-on-beige',
-  destroy:   'bg-error text-inverse font-bold rounded-md p-4 hover:opacity-90',
-  tertiary:  'flex items-center gap-3 text-secondary font-normal hover:text-foreground',
-}
+const sizeStyles: Record<ButtonSize, string> = {
+  small: "min-h-8 px-3 py-3",
+  medium: "min-h-11 px-4 py-3",
+  large: "min-h-14 px-5 py-4",
+};
 
 export const buttonStyles = {
   root: ({
-    variant = 'primary',
+    variant = "primary",
     disabled = false,
     className,
+    size = "medium",
   }: {
-    variant?: Variant
-    disabled?: boolean
-    className?: string
+    variant?: ButtonVariant;
+    disabled?: boolean;
+    className?: string;
+    size?: ButtonSize;
   }) =>
     cn(
-      'text-preset-6 transition-colors cursor-pointer min-h-11',
+      "inline-flex items-center justify-center gap-2 text-preset-6 transition-colors cursor-pointer",
       variantStyles[variant],
-      disabled && 'opacity-50 cursor-not-allowed',
+      sizeStyles[size],
+      disabled && "opacity-50 cursor-not-allowed",
       className,
     ),
-}
+};

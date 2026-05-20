@@ -1,13 +1,15 @@
 import type { ButtonHTMLAttributes, ReactNode } from "react";
 import { buttonStyles as cls } from "./Button.styles";
-import { CaretDownIcon } from "@phosphor-icons/react";
 
-type ButtonVariant = "primary" | "secondary" | "destroy" | "tertiary";
+export type ButtonVariant = "primary" | "secondary" | "destroy" | "tertiary";
+export type ButtonSize = "small" | "medium" | "large";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
   children: ReactNode;
   showIcon?: boolean;
+  icon?: ReactNode;
+  size?: ButtonSize;
 }
 
 const Button = ({
@@ -15,19 +17,19 @@ const Button = ({
   children,
   showIcon = false,
   disabled = false,
+  icon,
   className,
+  size = "medium",
   ...props
 }: ButtonProps) => {
   return (
     <button
       disabled={disabled}
-      className={cls.root({ variant, disabled, className })}
+      className={cls.root({ variant, disabled, className, size })}
       {...props}
     >
       {children}
-      {variant === "tertiary" && showIcon && (
-        <CaretDownIcon size={12} aria-hidden="true" />
-      )}
+      {showIcon && icon}
     </button>
   );
 };
