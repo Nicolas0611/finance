@@ -1,6 +1,9 @@
+import type { PaginationMeta } from "./pagination";
+
 export interface TransactionsDTO {
   data: {
-    transactions: TransactionDTO[];
+    items: TransactionDTO[];
+    meta: PaginationMeta;
   };
   success: boolean;
 }
