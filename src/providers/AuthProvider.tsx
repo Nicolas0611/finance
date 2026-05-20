@@ -14,7 +14,7 @@ const AuthContext = createContext<AuthState | null>(null);
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [storedValue, setValue] = useLocalStorage<string | null>(
     "access_token",
-    null,
+    localStorage.getItem("access_token") || null,
   );
   const login = (t: string) => {
     setValue(t);
